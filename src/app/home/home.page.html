@@ -25,5 +25,19 @@
       </div>
     </swiper-slide>
   </swiper-container>
+
+
+<!--demo de storage-->
+  <div>
+    <h3>Demo ionic Storage</h3>
+    <div [style.background-color]="colorActual">
+      <p>Team Actual: {{ colorActual === colorOscuro ? 'Oscuro' : 'Claro'}}</p>
+
+    </div>
+  </div>
+
+  <div>
+    <ion-button (click)="CambiarColor()">Cambiar team y Guardar</ion-button>
+  </div>
 </ion-content>
 

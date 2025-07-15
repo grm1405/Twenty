@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   imports: [IonicModule, CommonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class HomePage {
+export class HomePage implements OnInit {
   colorClaro = 'var(--color-claro)';
   colorOscuro = 'var(--color-oscuro)';
   colorActual = this.colorOscuro;
@@ -45,10 +46,22 @@ export class HomePage {
     },
   ];
 
-  constructor() {}
+  constructor(private storageService: StorageService) {}
 
-  CambiarColor() {
+  async ngOnInit() {
+     await this.loadStorageData(); 
+  }
+
+  async CambiarColor() {
     this.colorActual = this.colorActual === this.colorOscuro ? this.colorClaro : this.colorOscuro;
+    await this.storageService.set('theme', this.colorActual)
+    console.log('tema Guardado: ', this.colorActual)
+  }
+
+  async loadStorageData(){
+    const savedTheme = await this.storageService.get('theme');
+    this.colorActual = savedTheme;
+
   }
 
   cambiarEstiloSlide() {
