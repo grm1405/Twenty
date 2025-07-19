@@ -1,12 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
+    <ion-title>Home</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="CambiarColor()">
-        Cambiar de tema
-      </ion-button>
+      <ion-button (click)="CambiarColor()">Cambiar de tema</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -26,18 +22,21 @@
     </swiper-slide>
   </swiper-container>
 
-
-<!--demo de storage-->
+  <!-- demo de storage -->
   <div>
-    <h3>Demo ionic Storage</h3>
+    <h3>Demo Ionic Storage</h3>
     <div [style.background-color]="colorActual">
-      <p>Team Actual: {{ colorActual === colorOscuro ? 'Oscuro' : 'Claro'}}</p>
-
+      <p>Tema Actual: {{ colorActual === colorOscuro ? 'Oscuro' : 'Claro' }}</p>
     </div>
   </div>
 
   <div>
-    <ion-button (click)="CambiarColor()">Cambiar team y Guardar</ion-button>
+    <ion-button (click)="CambiarColor()">Cambiar tema y guardar</ion-button>
+  </div>
+
+  <div>
+    <ion-button (click)="verIntro()">Ir a Intro</ion-button>
   </div>
 </ion-content>
+
 

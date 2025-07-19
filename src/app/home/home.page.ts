@@ -1,8 +1,9 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core'; 
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { StorageService } from '../services/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ export class HomePage implements OnInit {
   colorOscuro = 'var(--color-oscuro)';
   colorActual = this.colorOscuro;
 
-  modoClaro = false; // Nuevo: controla el color del slide
+  modoClaro = false; 
 
   genres = [
     {
@@ -46,26 +47,39 @@ export class HomePage implements OnInit {
     },
   ];
 
-  constructor(private storageService: StorageService) {}
+  constructor(
+    private storageService: StorageService,
+    private router: Router
+  ) {}
 
   async ngOnInit() {
-     await this.loadStorageData(); 
+    await this.loadStorageData();
+
+    const introVisto = await this.storageService.get('vistoIntro');
+    if (!introVisto) {
+      console.log("Redirigiendo a Intro...");
+      this.router.navigateByUrl('/intro');
+    }
   }
 
   async CambiarColor() {
     this.colorActual = this.colorActual === this.colorOscuro ? this.colorClaro : this.colorOscuro;
-    await this.storageService.set('theme', this.colorActual)
-    console.log('tema Guardado: ', this.colorActual)
+    await this.storageService.set('theme', this.colorActual);
+    console.log('Tema guardado:', this.colorActual);
   }
 
-  async loadStorageData(){
+  async loadStorageData() {
     const savedTheme = await this.storageService.get('theme');
-    this.colorActual = savedTheme;
-
+    if (savedTheme) {
+      this.colorActual = savedTheme;
+    }
   }
 
   cambiarEstiloSlide() {
     this.modoClaro = !this.modoClaro;
   }
-}
 
+  verIntro() {
+    this.router.navigateByUrl('/intro');
+  }
+}
