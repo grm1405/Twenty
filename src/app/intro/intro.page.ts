@@ -27,3 +27,4 @@ export class IntroPage implements OnInit {
     this.router.navigateByUrl('/home');
   }
 }
+
