@@ -19,24 +19,13 @@
         <img [src]="genre.image" [alt]="genre.title">
         <p>{{ genre.description }}</p>
       </div>
-    </swiper-slide>
-  </swiper-container>
 
-  <!-- demo de storage -->
-  <div>
-    <h3>Demo Ionic Storage</h3>
-    <div [style.background-color]="colorActual">
-      <p>Tema Actual: {{ colorActual === colorOscuro ? 'Oscuro' : 'Claro' }}</p>
-    </div>
-  </div>
-
-  <div>
-    <ion-button (click)="CambiarColor()">Cambiar tema y guardar</ion-button>
-  </div>
-
-  <div>
+      <div>
     <ion-button (click)="verIntro()">Ir a Intro</ion-button>
   </div>
+    </swiper-slide>
+    
+  </swiper-container>
 </ion-content>
 
 
