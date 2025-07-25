@@ -46,8 +46,10 @@ export class IntroPage implements OnInit {
   ngOnInit() {}
 
   async goBack() {
-    await this.storageService.set('intro-visto', true);
-    this.router.navigateByUrl('/home');
+    // para marcar que ya vio el intro
+await this.storageService.set('intro-visto', true);
+this.router.navigateByUrl('/home', { replaceUrl: true });
+
   }
 }
 

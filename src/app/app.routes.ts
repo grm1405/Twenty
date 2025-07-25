@@ -3,14 +3,14 @@ import { IntroGuard } from './guards/intro.guard';
 
 export const routes: Routes = [
   {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
-    canActivate: [IntroGuard]
-  },
-  {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    loadComponent: () => import('./home/home.page').then(m => m.HomePage),
+    canActivate: [IntroGuard]
   },
   {
     path: 'intro',
@@ -18,7 +18,8 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
-  },
+    loadComponent: () => import('./login/login.page').then(m => m.LoginPage)
+  }
 ];
+
 
