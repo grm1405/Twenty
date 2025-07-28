@@ -13,7 +13,6 @@
 
   <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
 
-    <!-- Email -->
     <ion-item>
       <ion-input
         id="emailInput"
@@ -31,7 +30,6 @@
       </div>
     </div>
 
-    <!-- Contraseña -->
     <ion-item class="ion-margin-top">
       <ion-input
         id="passwordInput"
@@ -49,25 +47,30 @@
       </div>
     </div>
 
-    <!-- Botón -->
-<ion-button 
-  expand="full" 
-  shape="round" 
-  color="success" 
-  class="ion-margin-top" 
-  [disabled]="!loginForm.valid" 
-  type="submit">
-  Login
-</ion-button>
+    <ion-button 
+      expand="full" 
+      shape="round" 
+      color="success" 
+      class="ion-margin-top" 
+      [disabled]="!loginForm.valid" 
+      type="submit">
+      Login
+    </ion-button>
 
-<!-- Mensaje de error visible en pantalla -->
-<ion-text color="danger" *ngIf="errorMessage">
-  <p class="ion-padding-start">{{ errorMessage }}</p>
-</ion-text>
+    <ion-text color="danger" *ngIf="errorMessage">
+      <p class="ion-padding-start">{{ errorMessage }}</p>
+    </ion-text>
 
+    
+    <ion-button 
+      expand="full" 
+      fill="clear" 
+      color="medium" 
+      (click)="goToRegister()">
+      ¿No tienes cuenta? Regístrate
+    </ion-button>
 
   </form>
 
-  
-
 </ion-content>
+

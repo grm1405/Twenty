@@ -11,7 +11,7 @@ export const routes: Routes = [
   {
     path: 'home',
     loadComponent: () => import('./home/home.page').then(m => m.HomePage),
-    canActivate: [IntroGuard, LoginGuard] // ✅ aquí usamos ambos guards
+    canActivate: [IntroGuard, LoginGuard]
   },
   {
     path: 'intro',
@@ -20,7 +20,13 @@ export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () => import('./login/login.page').then(m => m.LoginPage)
-  }
+  },
+  {
+  path: 'register',
+  loadComponent: () => import('./register/register.page').then(m => m.RegisterPage)
+}
+
+
 ];
 
 

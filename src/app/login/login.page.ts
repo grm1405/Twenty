@@ -41,6 +41,11 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {}
 
+  goToRegister() {
+  this.navCtrl.navigateForward('/register');
+}
+
+
   loginUser() {
   const credentials = this.loginForm.value;
 
@@ -53,8 +58,8 @@ export class LoginPage implements OnInit {
     console.log('✅ Login correcto:', res);
 
     
-    console.log('📧 Email:', credentials.email);
-    console.log('🔐 Contraseña:', credentials.password);
+    console.log(' Email:', credentials.email);
+    console.log(' Contraseña:', credentials.password);
 
     
   }).catch((err: string) => {
