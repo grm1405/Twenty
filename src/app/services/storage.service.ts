@@ -23,13 +23,13 @@ export class StorageService {
     }
   }
 
-// puedo setear datos en el storage
+
   public async set(key: string, value: any) {
     await this.ready();
     return this._storage?.set(key, value);
   }
 
-  //obtener datos del storage
+  
   public async get (key: string){
     await this.ready();
     return this._storage?.get (key);

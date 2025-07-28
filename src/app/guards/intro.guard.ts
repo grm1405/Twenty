@@ -16,10 +16,10 @@ export class IntroGuard implements CanActivate {
     const introVisto = await this.storageService.get('intro-visto');
 
     if (introVisto) {
-      return true; // puede ir al home
+      return true; 
     } else {
       this.router.navigateByUrl('/intro');
-      return false; // redirige al intro
+      return false; 
     }
   }
 }
